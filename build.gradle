@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.9.RELEASE")
+    }
+}
+
+// we will use java for compiling and such
+apply plugin: 'java'
+// we are using idea IDE
+apply plugin: 'idea'
+// we are using spring for rest api
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+// the libraries used go here
+dependencies {
+    //for restful implementation
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // google gson library
+    compile("com.google.code.gson:gson:1.7.2")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
+
